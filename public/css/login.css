@@ -132,6 +132,12 @@ a:hover {
     border: 2px solid #CFAF3C;
 }
 
+input:focus{
+
+    outline-color: #ffbb00;
+
+}
+
 .con-login {
     position: absolute;
     width: 53px;
