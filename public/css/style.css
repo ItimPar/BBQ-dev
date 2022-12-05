@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inika&family=Mitr&display=swap');
+
+* {
+    font-family: "Inika", "Mitr", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+
+}
+
+.logo {
+    position: absolute;
+    left: 860px;
+    top: -2px;
+    z-index: 999;
+}
+
+.title-bar {
+    position: absolute;
+    width: 1921px;
+    height: 52px;
+    left: 0px;
+    top: 0px;
+
+    background: #cfaf3c;
+}
+
+.img-bg {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 1922px;
+    height: 897px;
+    left: -2px;
+    top: 51px;
+    opacity: 1;
+    background: url("../images/bg_webpage.jpg");
+    filter: brightness(0.4);
+}
+
+.bottom {
+    position: absolute;
+    width: 1920px;
+    height: 160px;
+    left: 0px;
+    top: 948px;
+
+    background: #cfaf3c;
+}
+
+.text-Contract {
+    position: absolute;
+    width: 320px;
+    height: 138px;
+    left: 517px;
+    top: 968px;
+
+
+}
+
+.text-address {
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    left: 1203px;
+    top: 968px;
+
+
+}
+
+.register {
+    position: absolute;
+    width: 106.06px;
+    height: 21px;
+    left: 1266.66px;
+    top: 105px;
+
+    color: #ffffff;
+}
+
+.login {
+    position: absolute;
+    width: 155.08px;
+    height: 21px;
+    left: 1407.73px;
+    top: 105px;
+
+
+}
+
+a {
+    color: white;
+    filter: brightness(0.9);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #cfaf3c;
+}
+
+.queue-top {
+    position: absolute;
+    width: 68.04px;
+    height: 24px;
+    left: 1588.83px;
+    top: 108px;
+
+
+}

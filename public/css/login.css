@@ -1,0 +1,166 @@
+.logo {
+    position: absolute;
+    left: 860px;
+    top: -2px;
+    z-index: 999;
+}
+
+.text-white {
+    color: white;
+}
+
+.title-bar {
+    position: absolute;
+    width: 1921px;
+    height: 52px;
+    left: 0px;
+    top: 0px;
+
+    background: #CFAF3C;
+}
+
+.img-bg {
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 1922px;
+    height: 897px;
+    left: -2px;
+    top: 51px;
+    opacity: 1;
+    background: url("../images/bg_webpage.jpg");
+    filter: brightness(0.4);
+}
+
+.text-login {
+    position: absolute;
+    width: 169px;
+    height: 83px;
+    left: 876px;
+    top: 278px;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 83px;
+
+    color: #FFC700;
+}
+
+.username {
+    position: absolute;
+    width: 96px;
+    height: 26px;
+    left: 666px;
+    top: 439px;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+
+}
+
+.password {
+    position: absolute;
+    width: 89px;
+    height: 52px;
+    left: 666px;
+    top: 548px;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+}
+
+.dont {
+    position: absolute;
+    width: 295px;
+    height: 26px;
+    left: 959px;
+    top: 640px;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #FFFFFF;
+
+}
+
+a {
+    color: #CFAF3C;
+    filter: brightness(0.9);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+.in-user input {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 588px;
+    height: 39px;
+    left: 666px;
+    top: 480px;
+
+    background: #FFFFFF;
+    border: 2px solid #CFAF3C;
+}
+
+.in-pass input {
+    box-sizing: border-box;
+    position: absolute;
+    width: 588px;
+    height: 39px;
+    left: 666px;
+    top: 587px;
+
+    background: #FFFFFF;
+    border: 2px solid #CFAF3C;
+}
+
+.con-login {
+    position: absolute;
+    width: 53px;
+    height: 26px;
+    left: 933px;
+    top: 706px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.button button {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 588px;
+    height: 39px;
+    left: 666px;
+    top: 700px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    background: #CFAF3C;
+    border: 2px solid #B89F46;
+}
+.con-login:hover{
+    color: black;
+}
