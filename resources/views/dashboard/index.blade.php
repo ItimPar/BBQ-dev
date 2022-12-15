@@ -33,7 +33,7 @@
                     <td>{{ $user->telephone }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->created_at }}</td>
-                    <td><a href="" class="btn btn-warning btn-sm">แก้ไข</a></td>
+                    <td><a href="{{ route('editUser',$user->id) }}" class="btn btn-warning btn-sm">แก้ไข</a></td>
                     <td><a href="" class="btn btn-danger btn-sm">ลบ</a></td>
                 </tr>
                 @endforeach

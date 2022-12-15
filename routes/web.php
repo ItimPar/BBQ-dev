@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,5 @@ Route::middleware([
         $users = User::all();
         return view('dashboard.index',compact('users'));
     })->name('dashboard');
+    Route::get('/dashboard/users/{id}', [UsersController::class, 'edit'])->name('editUser');
 });

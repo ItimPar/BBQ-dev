@@ -53,7 +53,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-warning" href="">
+          <a class="nav-link text-white active bg-gradient-warning" href="{{ route('dashboard') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="fa-solid fa-users"></i>
             </div>
@@ -118,9 +118,9 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="container">
+
         @yield('content')
-      </div>
+
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -133,9 +133,18 @@
   </main>
 
 
+<!-- Core js -->
+<script src="{{ asset('js') }}/core/popper.min.js"></script>
+<script src="{{ asset('js') }}/core/bootstrap.min.js"></script>
+
+<!-- Plugin js -->
+<script src="{{ asset('js') }}/core/perfect-scrollbar.min.js"></script>
+<script src="{{ asset('js') }}/core/smooth-scrollbar.min.js"></script>
+
+
 
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{ asset('css') }}/js/material-dashboard.min.js?v=3.0.4"></script>
+  <script src="{{ asset('js') }}/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>
