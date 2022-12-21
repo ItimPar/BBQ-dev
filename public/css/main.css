@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  outline: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url(../img/bg_webpage.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 50%;
+}
+
+.top-bar {
+  height: 50px;
+  width: 100%;
+  background: rgba(207, 175, 60, 1);
+  position: absolute;
+  top: 0;
+}
+.overlay {
+    background: #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    z-index: 1;
+  }
+
+.logo img {
+    width: 100%;
+}
+.center-text {
+    display: grid;
+    justify-content: center;
+    align-items:flex-start;
+    height: 150px;
+    font-size: 30px;
+    color: whitesmoke;
+}
+.btn-queue {
+    background: none;
+    border:3px solid rgba(207, 175, 60, 1);
+    justify-content: center;
+    width: 100%;
+    color: white;
+    padding: 8px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.4s ease;
+  }
+
+.btn-queue:hover {
+    background: rgb(228, 201, 103);
+}
+.top-main{
+    position: relative;
+    display: flex;
+    left:80%;
+    top:100px;
+}
+.register a{
+    position: relative;
+    text-decoration: none;
+    right: 300px;
+    color: whitesmoke;
+    font-size: 16px;
+}
+.login a{
+    position: relative;
+    text-decoration: none;
+    right: 200px;
+    color: whitesmoke;
+    font-size: 16px;
+}
+.top-btn-queue{
+    position: relative;
+    right: 140px;
+    top: -30px;
+    border: 3px solid rgba(207, 175, 60, 1);
+    padding: 8px 20px;
+    margin-top: 20px;
+    color: whitesmoke;
+    font-size: 16px;
+    background: none;
+    transition: 0.4s ease;
+}
+.top-btn-queue:hover {
+    background: rgb(228, 201, 103);
+
+}
+.register a:hover{
+    color: rgb(228, 201, 103);
+}
+.login a:hover{
+    color: rgb(228, 201, 103);
+}
+

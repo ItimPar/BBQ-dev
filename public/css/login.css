@@ -1,172 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  outline: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url(../img/bg_webpage.jpg);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 50%;
+}
+
+.top-bar {
+  height: 50px;
+  width: 100%;
+  background: rgba(207, 175, 60, 1);
+  position: absolute;
+  top: 0;
+}
+
+.overlay {
+  background: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
 .logo {
-    position: absolute;
-    left: 860px;
-    top: -2px;
-    z-index: 999;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 1;
 }
 
-.text-white {
-    color: white;
+.logo img {
+  width: 100%;
 }
 
-.title-bar {
-    position: absolute;
-    width: 1921px;
-    height: 52px;
-    left: 0px;
-    top: 0px;
-
-    background: #CFAF3C;
+.ctn-login {
+  max-width: 500px;
+  width: 100%;
+  height: 500px;
+  padding: 20px;
+  display: grid;
 }
 
-.img-bg {
-
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 1922px;
-    height: 897px;
-    left: -2px;
-    top: 51px;
-    opacity: 1;
-    background: url("../images/bg_webpage.jpg");
-    filter: brightness(0.4);
+.top-log {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  font-size: 30px;
+  color: rgba(207, 175, 60, 1);
 }
 
-.text-login {
-    position: absolute;
-    width: 169px;
-    height: 83px;
-    left: 876px;
-    top: 278px;
-
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 83px;
-
-    color: #FFC700;
+.bottom-log {
+  display: flex;
+  justify-content: center;
 }
 
-.username {
-    position: absolute;
-    width: 96px;
-    height: 26px;
-    left: 666px;
-    top: 439px;
-
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
-    /* identical to box height */
-
+form {
+  max-width: 100%;
+  width: 100%;
+  color: rgb(255, 255, 255);
 }
 
-.password {
-    position: absolute;
-    width: 89px;
-    height: 52px;
-    left: 666px;
-    top: 548px;
-
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
-
+form .group-input {
+  margin-bottom: 20px;
 }
 
-.dont {
-    position: absolute;
-    width: 295px;
-    height: 26px;
-    left: 959px;
-    top: 640px;
-
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
-
-    color: #FFFFFF;
-
+form .group-input input {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px 20px;
+  margin-top: 10px;
+  border: 2px solid rgba(207, 175, 60, 1);
 }
 
-a {
-    color: #CFAF3C;
-    filter: brightness(0.9);
-    text-decoration: none;
+form .dont {
+  text-align: right;
+  width: 100%;
 }
 
-a:hover {
-    color: white;
+.dont a {
+  text-decoration: none;
+  color: rgba(207, 175, 60, 1);
 }
 
-.in-user input {
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 588px;
-    height: 39px;
-    left: 666px;
-    top: 480px;
-
-    background: #FFFFFF;
-    border: 2px solid #CFAF3C;
+.btn-log {
+  background: rgba(207, 175, 60, 1);
+  width: 100%;
+  padding: 8px 20px;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.4s ease;
 }
 
-.in-pass input {
-    box-sizing: border-box;
-    position: absolute;
-    width: 588px;
-    height: 39px;
-    left: 666px;
-    top: 587px;
-
-    background: #FFFFFF;
-    border: 2px solid #CFAF3C;
-}
-
-input:focus{
-
-    outline-color: #ffbb00;
-
-}
-
-.con-login {
-    position: absolute;
-    width: 53px;
-    height: 26px;
-    left: 933px;
-    top: 706px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
-    color: #FFFFFF;
-}
-
-.button button {
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 588px;
-    height: 39px;
-    left: 666px;
-    top: 700px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    background: #CFAF3C;
-    border: 2px solid #B89F46;
-}
-.con-login:hover{
-    color: black;
+.btn-log:hover {
+  background: rgb(228, 201, 103);
 }
