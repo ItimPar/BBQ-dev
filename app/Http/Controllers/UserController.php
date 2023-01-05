@@ -31,6 +31,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'telephone' => $request->telephone,
+            'status' => 'customer',
         ]);
 
         return redirect()->route('dashboard.users')->with('success','เพิ่มข้อมูลเรียบร้อย');

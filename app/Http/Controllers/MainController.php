@@ -44,7 +44,9 @@ class MainController extends Controller
             'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min: 8',
+            'password_confirm' => 'required|same:password|min:8',
             'telephone' => 'required|digits: 10',
+
         ]);
 
         $data = $request->all();
@@ -56,6 +58,7 @@ class MainController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'telephone' => $data['telephone'],
+            'status' => "customer",
         ]);
 
         return redirect('login')->with('success', 'สมัครสมาชิกเรียบร้อยแล้ว');

@@ -5,7 +5,7 @@
 
     <div class="top-bar">
       <div class="logo">
-        <img src="{{ asset('img') }}/logo.png" alt="" >
+        <a href="{{ route('index') }}"><img src="{{ asset('img') }}/logo.png" alt="" ></a>
       </div>
     <div class="top-main">
 
@@ -14,7 +14,7 @@
            <a href= "{{ route('register') }}" >Register</a>
         </div>
         <div class="login">
-            <a href= "{{ route('login') }}" >login</a>
+            <a href= "{{ route('login') }}" >Login</a>
          </div>
 
          @else

@@ -10,7 +10,7 @@
 
     <div class="top-bar">
       <div class="logo">
-        <img src="{{ asset("img") }}/logo.png" alt="" >
+        <a href="{{ route('index') }}"><img src="{{ asset('img') }}/logo.png" alt="" ></a>
       </div>
     </div>
 
