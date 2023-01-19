@@ -92,11 +92,20 @@
                 @elseif(auth()->user()->status == "barber")
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('dashboard/queue*') ? 'active bg-gradient-warning' : '' }}"
-                            href="{{ route('dashboard.users') }}">
+                            href="{{ route('dashboard.queue') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="fa-solid fa-bars"></i>
                             </div>
                             <span class="nav-link-text ms-1">Queue</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('dashboard/calendar*') ? 'active bg-gradient-warning' : '' }}"
+                            href="{{ route('calendar') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Calendar</span>
                         </a>
                     </li>
                 @endif

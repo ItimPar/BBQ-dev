@@ -19,15 +19,17 @@ class DashboardController extends Controller
         }
 
         //status code 0=member 1=barber 2=admin
-        if(Auth::user()->status == "customer"){
-            return view('dashboard.user.index');
+        if(Auth::user()->status == 'customer'){
+        $barber = User::where('status','barber')->get();
+
+            return view('dashboard.user.userqueue')->with('barber',$barber);
         }
 
-        if(Auth::user()->status == "barber"){
+        if(Auth::user()->status == 'barber'){
             return view('dashboard.barber.index');
         }
 
-        if(Auth::user()->status == "admin"){
+        if(Auth::user()->status == 'admin'){
             return view('dashboard.admin.index');
         }
 
@@ -50,6 +52,11 @@ class DashboardController extends Controller
     function queue()
     {
         $queue = Queue::paginate(8);
+        if (Auth::user()->status == 'barber') {
+            $queue = Queue::where('barber_id',Auth::user()->id)->paginate(8);
+            return view('dashboard.barber.queue',compact('queue'));
+
+        }
         return view('dashboard.admin.queue',compact('queue'));
     }
 }

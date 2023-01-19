@@ -12,8 +12,8 @@ class Queue extends Model
     protected $fillable = [
         'user_id',
         'barber_id',
-        'reserve_date',
-        'reserve_time',
+        'start',
+        'end',
         'status',
 
     ];

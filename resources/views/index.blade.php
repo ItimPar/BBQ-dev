@@ -32,7 +32,7 @@
         @endguest
 
          <div class="top-queue">
-            <form action="">
+            <form action="{{ route("user.queue") }}">
                 <button type="submit" class="top-btn-queue">จองคิว</button>
             </form>
     </div>
@@ -48,7 +48,7 @@
                 <h1>Barber Shop</h1>
         </div>
         <div class="queue">
-            <form action="">
+            <form action="{{ route("user.queue") }}">
                 <button type="submit" class="btn-queue">จองคิว</button>
             </form>
         </div>

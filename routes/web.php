@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\QueueController;
+use App\Http\Controllers\JobtableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/dashboard/user/edit/{id}','edit')->name('user.edit');
     Route::post('/dashboard/user/update/{id}','update')->name('user.update');
     Route::get('/dashboard/user/delete/{id}','delete')->name('user.delete');
+    Route::get('/dashboard/user/queue/','userQueue')->name('user.queue');
+    Route::get('/dashboard/user/queue/history/','userQueueHistory')->name('user.queueHistory');
 });
 
 Route::controller(BarberController::class)->group(function () {
@@ -59,4 +62,11 @@ Route::controller(QueueController::class)->group(function () {
     Route::get('/dashboard/queue/edit/{id}','edit')->name('queue.edit');
     Route::post('/dashboard/queue/update/{id}','update')->name('queue.update');
     Route::get('/dashboard/queue/delete/{id}','delete')->name('queue.delete');
+});
+
+Route::controller(JobtableController::class)->group(function () {
+    Route::post('/check','getTimePost')->name('timePost');
+    Route::post('/create','create')->name('queueCreate');
+    Route::get('/fullcalender', 'index')->name('calendar');
+    Route::post('/fullcalenderAjax', 'ajax')->name('calendarAjax');
 });

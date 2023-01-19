@@ -10,8 +10,9 @@
                 <div class="input-group input-group-static mb-4">
                     <label>User</label>
                     <select name="user_id" class="form-select mt-4 ">
+                        <option value="" selected disabled>เลือกลูกค้า</option>"
                         @foreach ($user as $row)
-                            <option value={{ $row->id }}>{{ $row->username }}</option>
+                            <option value={{ $row->id }}>{{ $row->firstname }} {{ $row->lastname }} {{ $row->username }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -23,8 +24,9 @@
                 <div class="input-group input-group-static mb-4">
                     <label>Barber</label>
                     <select name="barber_id" class="form-select mt-4 ">
+                        <option value="" selected disabled>เลือกช่าง</option>"
                         @foreach ($barber as $row)
-                            <option value={{ $row->id }}>{{ $row->username }}</option>
+                            <option value={{ $row->id }}>{{ $row->firstname }} {{ $row->lastname }}</option>
                         @endforeach
                     </select>
                 </div>

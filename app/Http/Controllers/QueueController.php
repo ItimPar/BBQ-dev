@@ -42,7 +42,7 @@ class QueueController extends Controller
         $user = User::where('status','customer')->get();
         $barber = User::where('status','barber')->get();
 
-        return view('dashboard.admin.queue.edit')->with('queue',$queue)->with('user',$user)->with('barber',$barber);
+        return view('dashboard.admin.queue.edit')->with('queue',$queue)->with('user',$user)->with('barber',$barber)->with('queue',$queue);
     }
 
     function update(Request $request, $id)
@@ -52,6 +52,7 @@ class QueueController extends Controller
             'barber_id' => 'required',
             'reserve_date' => 'required',
             'reserve_time' => 'required',
+            'status' => 'required',
         ]);
 
 
@@ -60,14 +61,17 @@ class QueueController extends Controller
             'barber_id' => $request->barber_id,
             'reserve_date' => $request->reserve_date,
             'reserve_time' => $request->reserve_time,
+            'status' => $request->status,
+
         ]);
 
         return redirect()->route('dashboard.queue')->with('success','อัพเดทข้อมูลเรียบร้อย');
     }
 
-    public function delete($id)
+    function delete($id)
     {
         $delete = Queue::find($id)->forceDelete();
         return redirect()->back()->with('success','ลบข้อมูลเรียบร้อย');
     }
+
 }

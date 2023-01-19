@@ -50,10 +50,21 @@
                     <span class="text-danger ">{{ $errors->first('reserve_time') }}</span>
                 @endif
 
+                <div class="input-group input-group-static mb-4">
+                    <label>Status</label>
+                    <select name="status" class="form-select mt-4 ">
+                            <option value="รอ" {{ $queue->status == "รอ" ? 'selected':'' }}>รอ</option>
+                            <option value="เสร็จ" {{ $queue->status == "เสร็จ" ? 'selected':'' }}>เสร็จ</option>
+                            <option value="ยกเลิก" {{ $queue->status == "ยกเลิก" ? 'selected':'' }}>ยกเลิก</option>
+
+                    </select>
+                </div>
+                @if ($errors->has('status'))
+                    <span class="text-danger ">{{ $errors->first('status') }}</span>
+                @endif
 
 
-
-                <button type="submit" class="btn btn-dark btn-block">Add</button>
+                <button type="submit" class="btn btn-dark btn-block">Edit</button>
             </form>
         </div>
     </div>

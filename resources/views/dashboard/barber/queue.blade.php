@@ -23,9 +23,9 @@
             <thead>
                 <th>Id</th>
                 <th>User</th>
-                <th>Barber</th>
-                <th>Date</th>
-                <th>Time</th>
+
+                <th>Start</th>
+                <th>End</th>
                 <th>Created</th>
                 <th>Status</th>
                 <th>Edit</th>
@@ -36,10 +36,10 @@
                 @foreach($queue as $row)
                 <tr>
                     <td>{{ $row->id }}</td>
-                    <td>{{ User::find($row->user_id)->username }}</td>
-                    <td>{{ User::find($row->barber_id)->username}}</td>
-                    <td>{{ $row->reserve_date }}</td>
-                    <td>{{ $row->reserve_time }}</td>
+                    <td>{{ User::find($row->user_id)->firstname }} {{ User::find($row->user_id)->lastname }}</td>
+
+                    <td>{{ $row->start }}</td>
+                    <td>{{ $row->end }}</td>
                     <td>{{ $row->created_at }}</td>
                     <td>{{ $row->status }}</td>
                     <td><a href="{{ route('queue.edit',$row->id)}}" class="btn btn-sm btn-warning">แก้ไข</a></td>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Queue;
 use Hash;
 
 class UserController extends Controller
@@ -70,5 +72,22 @@ class UserController extends Controller
     {
         $delete = User::find($id)->forceDelete();
         return redirect()->back()->with('success','ลบข้อมูลเรียบร้อย');
+    }
+
+    function userQueue()
+    {
+        // check if user is not logged in
+        if (!Auth::user()) {
+            return redirect('login');
+        }
+        $barber = User::where('status','barber')->get();
+        return view('dashboard.user.userQueue')->with('barber',$barber);
+
+    }
+
+    function userQueueHistory()
+    {
+        $queueList = Queue::where('user_id',Auth::user()->id)->paginate(8);
+        return view('dashboard.user.history')->with('queueList',$queueList);
     }
 }
