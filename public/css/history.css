@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+    border: none;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url(../img/bg_webpage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 50%;
+}
+
+header {
+  padding: 10px;
+  border-bottom: 2px solid gray;
+}
+
+main {
+padding: 50px 0 50px 0;
+}
+
+.top-bar {
+    height: 50px;
+    width: 100%;
+  background: rgba(207, 175, 60, 1);
+  position: absolute;
+  top: 0;
+}
+
+.overlay {
+  background: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 1;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.container {
+  height: auto;
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  display: grid;
+  grid-template-rows: 40px auto;
+  border: 4px solid rgba(207, 175, 60, 1);
+  padding: 10px;
+  font-size: 12px;
+}
+
+
+.menu {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  border: 2px solid rgb(239, 196, 41);
+  background: white;
+  padding: 5px;
+}
+
+.menu li {
+  height: 45px;
+  width: 100%;
+  text-align: center;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  color: rgb(34, 34, 34);
+}
+
+.menu li:first-child a {
+  border-bottom: 2px solid rgb(81, 81, 81);
+}
+
+.tb-booking {
+  padding: 20px;
+  border-collapse: collapse;
+  align-self: start;
+}
+
+.tb-booking thead {
+  height: 30px;
+
+  text-align: center;
+  border-bottom: 1px solid rgb(22, 22, 22);
+  border-top: 1px solid rgb(30, 30, 30);
+}
+
+tbody tr {
+  border-bottom: 1px solid rgb(70, 70, 70);
+}
+
+tbody td {
+  padding: 10px;
+}
+
+.btn {
+  padding: 5px;
+  font-size: 10px;
+  border: 2px solid rgb(92, 92, 92);
+}

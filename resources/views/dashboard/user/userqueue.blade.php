@@ -1,14 +1,15 @@
-@extends('layouts.index')
+@extends('layouts.userlayout')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{ asset('css') }}/userqueue.css" />
 @section('content')
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <div class="top-bar">
+<div class="top-bar">
         <div class="logo">
             <a href="{{ route('index') }}"><img src="{{ asset('img') }}/logo.png" alt=""></a>
         </div>
     </div>
+
 
 
     <div class="container">
@@ -54,13 +55,7 @@
                 <div class="group-input">
                     <label for="">เลือกเวลา</label>
                     <select name="reserve_time" id="time" disabled>
-
                         <option value="" selected disabled>เลือกเวลา</option>
-
-                        {{-- @foreach ($time as $i)
-                        <option value={{ $i }}>{{ $i }} {{ $i }}</option>
-                    @endforeach --}}
-
                     </select>
                 </div>
                 @if ($errors->has('reserve_time'))
@@ -77,20 +72,6 @@
     </div>
 
 
-    <div class="menu">
-        <ul>
-            <li><a href="{{ route('user.queueHistory') }}">ประวัติ</a></li>
-            <form method="POST" action="{{ route('logout') }}" style="width:auto;padding:0">
-                @csrf
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                            this.closest('form').submit(); "
-                    role="button">
-                    {{ __('ออกจากระบบ') }}
-                </a>
-            </form>
-        </ul>
-    </div>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -103,6 +84,7 @@
             $("#date").prop('disabled', false);
             $("#time").prop('disabled', true);
             $("#time").empty().append('<option value="" selected disabled>เลือกเวลา</option>');
+            $("#date").val('');
 
         });
 

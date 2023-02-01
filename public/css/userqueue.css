@@ -146,6 +146,6 @@ button:last-child {
 
 }
 
-.menu li:first-child a {
+.menu li:nth-last-child(2) a {
     border-bottom: 2px solid rgb(81, 81, 81);
 }

@@ -7,6 +7,7 @@ use App\Models\Queue;
 use App\Models\User;
 
 
+
 class QueueController extends Controller
 {
     function create()
@@ -21,15 +22,15 @@ class QueueController extends Controller
         $request -> validate([
             'user_id' => 'required',
             'barber_id' => 'required',
-            'reserve_date' => 'required',
-            'reserve_time' => 'required',
+            'start' => 'required',
+            'end' => 'required',
         ]);
 
         $store = Queue::create([
             'user_id' => $request->user_id,
             'barber_id' => $request->barber_id,
-            'reserve_date' => $request->reserve_date,
-            'reserve_time' => $request->reserve_time,
+            'start' => $request->start,
+            'end' => $request->end,
             'status' => 'รอ',
         ]);
 
@@ -50,8 +51,8 @@ class QueueController extends Controller
         $request -> validate([
             'user_id' => 'required',
             'barber_id' => 'required',
-            'reserve_date' => 'required',
-            'reserve_time' => 'required',
+            'start' => 'required',
+            'end' => 'required',
             'status' => 'required',
         ]);
 
@@ -59,8 +60,8 @@ class QueueController extends Controller
         $update = Queue::find($id)->update([
             'user_id' => $request->user_id,
             'barber_id' => $request->barber_id,
-            'reserve_date' => $request->reserve_date,
-            'reserve_time' => $request->reserve_time,
+            'start' => $request->start,
+            'end' => $request->end,
             'status' => $request->status,
 
         ]);
@@ -72,6 +73,26 @@ class QueueController extends Controller
     {
         $delete = Queue::find($id)->forceDelete();
         return redirect()->back()->with('success','ลบข้อมูลเรียบร้อย');
+    }
+
+    function status($id,$status,$barber=null)
+    {
+
+        if ($barber != null) {
+        //     notification::create([
+        //         'user_id' => Queue::find($id)->user_id,
+        //         'barber_id' => $barber,
+        //         'queue_id' => $id,
+        //         'description' => 'คิวที่ '.$id.' ถูก '.$status,
+        // ]);
+        }
+
+        $update = Queue::find($id)->update([
+            'status' => $status,
+        ]);
+
+
+        return redirect()->back()->with('success','แก้ไขเรียบร้อย');
     }
 
 }

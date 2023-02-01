@@ -58,7 +58,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 {{-- sidenav item for admin  --}}
-                @if(auth()->user()->status == "admin")
+                @if (auth()->user()->status == 'admin')
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('dashboard/user*') ? 'active bg-gradient-warning' : '' }}"
                             href="{{ route('dashboard.users') }}">
@@ -88,8 +88,8 @@
                             <span class="nav-link-text ms-1">Queue</span>
                         </a>
                     </li>
-                {{-- sidenav item for barber --}}
-                @elseif(auth()->user()->status == "barber")
+                    {{-- sidenav item for barber --}}
+                @elseif(auth()->user()->status == 'barber')
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('dashboard/queue*') ? 'active bg-gradient-warning' : '' }}"
                             href="{{ route('dashboard.queue') }}">
@@ -123,35 +123,51 @@
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
             data-scroll="true">
             <div class="container-fluid py-1 px-3">
-                {{-- <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="#">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Users</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Users</h6>
-        </nav> --}}
+                <a href="javascript:;" class="nav-link text-body p-0 d-xl-none" id="iconNavbarSidenav">
+                    <div class="sidenav-toggler-inner">
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                    </div>
+                </a>
 
 
 
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <ul class="navbar-nav ms-md-auto pe-md-3 justify-content-end">
+
+
+
                         <li class="nav-item d-flex align-items-center">
-                            <a href="#" class="nav-link text-body font-weight-bold px-0">
+
                                 <i class="fa fa-user me-sm-1"></i>
                                 <span class="d-sm-inline d-none">{{ Auth::user()->username }}</span>
-                            </a>
+
                         </li>
 
-                        <li class="nav-item px-2 d-flex align-items-center">
-                            <a href="#" class="nav-link text-body p-0">
-                                <i class="fa fa-cog fixed-plugin-button-nav"></i>
-                            </a>
+
+                        <li class="nav-item dropdown px-2 d-flex align-items-center">
+
+                            {{-- @php
+                                        use App\Models\User;
+                                        use App\Models\Queue;
+                                        use App\Models\notification;
+                                        $noti = notification::where('barber_id',Auth::user()->id)->get();
+                                        $n = notification::where('barber_id',Auth::user()->id)->get()->count();
+                                    @endphp --}}
+                            <div class="dropdown">
+                                <a class="" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-bell"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {{-- @foreach ($noti as $row)
+                                    <li><a class="dropdown-item" href="#">{{ $row->description }}</a></li>
+                                    @endforeach --}}
+                                </ul>
+                            </div>
                         </li>
-                        <li class="nav-item px-2 d-flex align-items-center">
-                            <a href="#" class="nav-link text-body p-0">
-                                <i class="fa fa-bell"></i>
-                            </a>
-                        </li>
+
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <div class="nav-item">
@@ -165,6 +181,7 @@
                                 </a>
                             </div>
                         </form>
+
                     </ul>
 
 
@@ -172,8 +189,7 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="container-fluid py-4">
-
+        <div class="container py-4 ">
 
 
             @yield('content')
@@ -198,10 +214,18 @@
     <script src="{{ asset('js') }}/core/bootstrap.min.js"></script>
 
     <!-- Plugin js -->
-    <script src="{{ asset('js') }}/core/perfect-scrollbar.min.js"></script>
-    <script src="{{ asset('js') }}/core/smooth-scrollbar.min.js"></script>
+    <script src="{{ asset('js') }}/plugins/perfect-scrollbar.min.js"></script>
+    <script src="{{ asset('js') }}/plugins/smooth-scrollbar.min.js"></script>
 
-
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('js') }}/material-dashboard.min.js?v=3.0.4"></script>

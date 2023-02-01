@@ -7,11 +7,23 @@
         <div class="card-body">
             <form action="{{ route('queue.update', $queue->id) }}" method="post">
                 @csrf
-                <div class="input-group input-group-static mb-4">
+
+                                <div class="input-group input-group-static mb-4 w-25">
+                                    <label for="barber">Barber</label>
+                                    <select name="barber_id" class="form-select mt-4 rounded ps-2" id="barber">
+                                        @foreach ($barber as $row)
+                                            <option value={{ $row->id }} {{ $row->id == $queue->barber_id ? 'selected':'' }}>{{ $row->firstname }} {{ $row->lastname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @if ($errors->has('barber_id'))
+                                    <span class="text-danger ">{{ $errors->first('barber_id') }}</span>
+                                @endif
+                <div class="input-group input-group-static mb-4 w-25">
                     <label>User</label>
-                    <select name="user_id" class="form-select mt-4 ">
+                    <select name="user_id" class="form-select mt-4 rounded ps-2">
                         @foreach ($user as $row)
-                            <option value={{ $row->id }} {{ $row->id == $queue->user_id ? 'selected':'' }}>{{ $row->username }}</option>
+                            <option value={{ $row->id }} {{ $row->id == $queue->user_id ? 'selected':'' }}>{{ $row->firstname }} {{ $row->lastname }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -20,39 +32,27 @@
                 @endif
 
 
-                <div class="input-group input-group-static mb-4">
-                    <label>Barber</label>
-                    <select name="barber_id" class="form-select mt-4 ">
-                        @foreach ($barber as $row)
-                            <option value={{ $row->id }} {{ $row->id == $queue->barber_id ? 'selected':'' }}>{{ $row->username }}</option>
-                        @endforeach
-                    </select>
+
+                <div class="input-group input-group-static mb-4 w-25">
+                    <label>Start</label>
+                    <input type="datetime-local" class="form-control " name="start" value="{{ $queue->start }}">
                 </div>
-                @if ($errors->has('barber_id'))
-                    <span class="text-danger ">{{ $errors->first('barber_id') }}</span>
+                @if ($errors->has('start'))
+                    <span class="text-danger ">{{ $errors->first('start') }}</span>
                 @endif
 
 
-                <div class="input-group input-group-static mb-4">
-                    <label>Date</label>
-                    <input type="date" class="form-control " name="reserve_date" value="{{ $queue->reserve_date }}">
+                <div class="input-group input-group-static mb-4 w-25">
+                    <label>End</label>
+                    <input type="datetime-local" class="form-control" name="end" value="{{ $queue->end }}">
                 </div>
-                @if ($errors->has('reserve_date'))
-                    <span class="text-danger ">{{ $errors->first('reserve_date') }}</span>
+                @if ($errors->has('end'))
+                    <span class="text-danger ">{{ $errors->first('end') }}</span>
                 @endif
 
-
-                <div class="input-group input-group-static mb-4">
-                    <label>Time</label>
-                    <input type="time" class="form-control" name="reserve_time" value="{{ $queue->reserve_time }}">
-                </div>
-                @if ($errors->has('reserve_time'))
-                    <span class="text-danger ">{{ $errors->first('reserve_time') }}</span>
-                @endif
-
-                <div class="input-group input-group-static mb-4">
+                <div class="input-group input-group-static mb-4 w-25">
                     <label>Status</label>
-                    <select name="status" class="form-select mt-4 ">
+                    <select name="status" class="form-select mt-4 ps-2">
                             <option value="รอ" {{ $queue->status == "รอ" ? 'selected':'' }}>รอ</option>
                             <option value="เสร็จ" {{ $queue->status == "เสร็จ" ? 'selected':'' }}>เสร็จ</option>
                             <option value="ยกเลิก" {{ $queue->status == "ยกเลิก" ? 'selected':'' }}>ยกเลิก</option>

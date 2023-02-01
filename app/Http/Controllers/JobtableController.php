@@ -74,8 +74,8 @@ class JobtableController extends Controller
         while ($start < $end) {
             $starttime = Carbon::createFromFormat('d-m-Y H', $date.' '.$start)->toDateTimeString();
             $endtime = Carbon::createFromFormat('d-m-Y H', $date.' '.($start+$inteval).'')->toDateTimeString();
-            $user = Jobtable::where('barber_id',$barber)->where('start',">=",''.$starttime)->where('end',"<=",''.$endtime)->first();
-            if ($user == null) {
+            $job = Jobtable::where('barber_id',$barber)->where('start',">=",''.$starttime)->where('end',"<=",''.$endtime)->first();
+            if ($job == null) {
                 array_push($time,$start);
             }
             $start+=$inteval;

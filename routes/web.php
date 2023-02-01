@@ -45,7 +45,8 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/dashboard/user/update/{id}','update')->name('user.update');
     Route::get('/dashboard/user/delete/{id}','delete')->name('user.delete');
     Route::get('/dashboard/user/queue/','userQueue')->name('user.queue');
-    Route::get('/dashboard/user/queue/history/','userQueueHistory')->name('user.queueHistory');
+    Route::get('/dashboard/user/queue/history/{scope?}','userQueueHistory')->name('user.queueHistory');
+    Route::get('/dashboard/user/profile','userProfile')->name('user.profile');
 });
 
 Route::controller(BarberController::class)->group(function () {
@@ -62,6 +63,7 @@ Route::controller(QueueController::class)->group(function () {
     Route::get('/dashboard/queue/edit/{id}','edit')->name('queue.edit');
     Route::post('/dashboard/queue/update/{id}','update')->name('queue.update');
     Route::get('/dashboard/queue/delete/{id}','delete')->name('queue.delete');
+    Route::get('/dashboard/queue/update/{id}/{status}/{barber_id?}','status')->name('queue.status');
 });
 
 Route::controller(JobtableController::class)->group(function () {

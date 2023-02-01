@@ -85,9 +85,21 @@ class UserController extends Controller
 
     }
 
-    function userQueueHistory()
+    function userQueueHistory($scope)
     {
-        $queueList = Queue::where('user_id',Auth::user()->id)->paginate(8);
+        if ($scope == 'active') {
+            $queueList = Queue::where('user_id',Auth::user()->id)->where('status', '<>', 'เลยกำหนด')->where('status', '<>', 'ยกเลิก')->orderBy('start', 'DESC')->paginate(8);
+        }
+        //only active queue list
+        else {
+            $queueList = Queue::where('user_id',Auth::user()->id)->orderBy('start', 'DESC')->paginate(8);
+        }
         return view('dashboard.user.history')->with('queueList',$queueList);
+    }
+
+    function userProfile()
+    {
+        $user = User::find(Auth::user()->id);
+        return view('dashboard.user.profile')->with('user',$user);
     }
 }
