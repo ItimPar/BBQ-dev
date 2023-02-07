@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Queue;
 use App\Models\User;
-
+use App\Notifications\QueueNotification;
+use Illuminate\Support\Facades\Notification;
+use Carbon\Carbon;
 
 
 class QueueController extends Controller
@@ -75,18 +77,16 @@ class QueueController extends Controller
         return redirect()->back()->with('success','ลบข้อมูลเรียบร้อย');
     }
 
-    function status($id,$status,$barber=null)
+    function changeStatus($id,$status,$barber=null)
     {
 
         if ($barber != null) {
-        //     notification::create([
-        //         'user_id' => Queue::find($id)->user_id,
-        //         'barber_id' => $barber,
-        //         'queue_id' => $id,
-        //         'description' => 'คิวที่ '.$id.' ถูก '.$status,
-        // ]);
+        $queueData = Queue::find($id);
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $queueData->start);
+        $text = 'รหัสคิว '.$id.' วันที่ '.$date->day.'-'.$date->month.'-'.$date->year.' '.$date->hour.'-'.($date->hour+1).' ถูก '.$status;
+        $barber = User::find($barber)->first();
+        Notification::send($barber, new QueueNotification($text,$id));
         }
-
         $update = Queue::find($id)->update([
             'status' => $status,
         ]);
@@ -94,5 +94,7 @@ class QueueController extends Controller
 
         return redirect()->back()->with('success','แก้ไขเรียบร้อย');
     }
+
+
 
 }

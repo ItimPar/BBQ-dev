@@ -59,4 +59,10 @@ class DashboardController extends Controller
         }
         return view('dashboard.admin.queue',compact('queue'));
     }
+
+    function allNotification()
+    {
+        $user = User::find(Auth::user()->id);
+        return view('dashboard.barber.notification.allnotification',compact('user'));
+    }
 }

@@ -138,35 +138,41 @@
 
 
 
-                        <li class="nav-item d-flex align-items-center">
-
-                                <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">{{ Auth::user()->username }}</span>
-
-                        </li>
 
 
-                        <li class="nav-item dropdown px-2 d-flex align-items-center">
 
-                            {{-- @php
+                        <li class="nav-item dropdown px-3 d-flex align-items-center">
+
+                            @php
                                         use App\Models\User;
-                                        use App\Models\Queue;
-                                        use App\Models\notification;
-                                        $noti = notification::where('barber_id',Auth::user()->id)->get();
-                                        $n = notification::where('barber_id',Auth::user()->id)->get()->count();
-                                    @endphp --}}
+                                        // use App\Models\Queue;
+                                        // use App\Models\notification;
+                                        // $noti = notification::where('barber_id',Auth::user()->id)->get();
+                                        // $n = notification::where('barber_id',Auth::user()->id)->get()->count();
+                                        $user = User::find(Auth::user()->id)->first();
+                                    @endphp
                             <div class="dropdown">
                                 <a class="" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                     <i class="fa-solid fa-bell"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    {{-- @foreach ($noti as $row)
-                                    <li><a class="dropdown-item" href="#">{{ $row->description }}</a></li>
-                                    @endforeach --}}
+
+                                    @foreach ($user->notifications as $row)
+                                    <li><a class="dropdown-item" href="#">{{ $row->data['text'] }}</a></li>
+                                    @endforeach
+                                    <li><a class="dropdown-item text-dark" href="{{ route('dashboard.allnoti') }}">Show All</a></li>
+
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item d-flex px-2 align-items-center">
+
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">{{ Auth::user()->username }}</span>
+
+                    </li>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

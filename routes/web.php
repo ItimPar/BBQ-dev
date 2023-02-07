@@ -36,6 +36,7 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard/user','user')->name('dashboard.users');
     Route::get('/dashboard/barber','barber')->name('dashboard.barber');
     Route::get('/dashboard/queue','queue')->name('dashboard.queue');
+    Route::get('/dashboard/notifications','allNotification')->name('dashboard.allnoti');
 });
 
 Route::controller(UserController::class)->group(function () {
@@ -63,7 +64,7 @@ Route::controller(QueueController::class)->group(function () {
     Route::get('/dashboard/queue/edit/{id}','edit')->name('queue.edit');
     Route::post('/dashboard/queue/update/{id}','update')->name('queue.update');
     Route::get('/dashboard/queue/delete/{id}','delete')->name('queue.delete');
-    Route::get('/dashboard/queue/update/{id}/{status}/{barber_id?}','status')->name('queue.status');
+    Route::get('/dashboard/queue/update/{id}/{status}/{barber_id?}','changeStatus')->name('queue.status');
 });
 
 Route::controller(JobtableController::class)->group(function () {

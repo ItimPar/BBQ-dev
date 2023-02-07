@@ -48,14 +48,19 @@
                     <td>{{ date("H", strtotime($row->start)) ." - ". date("H", strtotime($row->start))+1}}</td>
                     <td>{{ date("d-m-Y", strtotime($row->start))}}</td>
                     <td>{{ $row->status }}</td>
+
+
                     @if ($row->status == 'เสร็จ'|| $row->status == 'ยกเลิก')
                     <td><a href="/dashboard/queue/update/{{ $row->id.'/'.'รอ' }}" class="btn btn-secondary">เปลี่ยนกลับ</a></td>
+                    <td><a href="/dashboard/queue/update/{{ $row->id.'/'.'ยกเลิก' }}" class="btn btn-primary">ยกเลิก</a></td>
 
+                    @elseif ($row->status == 'เลยกำหนด')
+                    <td><span class=""></span></td>
                     @else
 
                     <td><a href="/dashboard/queue/update/{{ $row->id.'/'.'เสร็จ' }}" class="btn btn-warning">เสร็จสิ้น</a></td>
-                    @endif
                     <td><a href="/dashboard/queue/update/{{ $row->id.'/'.'ยกเลิก' }}" class="btn btn-primary">ยกเลิก</a></td>
+                    @endif
 
                 </tr>
                 @endforeach
