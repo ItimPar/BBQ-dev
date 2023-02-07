@@ -30,7 +30,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <div class="top-queue">
-                        <button class="top-btn-queue" href="{{ route('logout') }}"
+                        <button class="top-btn-queue" style="right:100px;" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             this.closest('form').submit(); "
                             role="button" >

@@ -22,7 +22,8 @@
             <li><a href="{{ route('user.profile') }}">ข้อมูลส่วนตัว</a></li>
             <li><a href="{{ route('user.queueHistory', 'active') }}">คิว</a></li>
             <li><a href="{{ route('user.queueHistory', 'all') }}">ประวัติ</a></li>
-            <form method="POST" action="{{ route('logout') }}" style="width:auto;padding:0">
+            <li><a href="{{ route('dashboard.usernoti') }}">การแจ้งเตือน</a></li>
+            <form method="POST" action="{{ route('logout') }}" style="width:auto;padding:0;">
                 @csrf
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();

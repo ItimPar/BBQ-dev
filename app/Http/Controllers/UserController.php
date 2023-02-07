@@ -53,6 +53,7 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required',
             'telephone' => 'required',
+            'password' => 'min:8',
         ]);
 
 
@@ -102,4 +103,5 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         return view('dashboard.user.profile')->with('user',$user);
     }
+
 }

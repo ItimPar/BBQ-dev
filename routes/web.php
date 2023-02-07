@@ -37,6 +37,12 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard/barber','barber')->name('dashboard.barber');
     Route::get('/dashboard/queue','queue')->name('dashboard.queue');
     Route::get('/dashboard/notifications','allNotification')->name('dashboard.allnoti');
+    Route::post('/dashboard/update/{id}','updateUser')->name('dashboard.updateUser');
+    Route::get('/dashboard/reset','view_resetPassword')->name('dashboard.view_resetPassword');
+    Route::post('/dashboard/reset/{id}','resetPassword')->name('dashboard.resetPassword');
+    Route::get('/dashboard/notification','view_usernoti')->name('dashboard.usernoti');
+
+
 });
 
 Route::controller(UserController::class)->group(function () {

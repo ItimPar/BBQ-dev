@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Queue;
+use Hash;
 
 
 class DashboardController extends Controller
@@ -65,4 +66,51 @@ class DashboardController extends Controller
         $user = User::find(Auth::user()->id);
         return view('dashboard.barber.notification.allnotification',compact('user'));
     }
+
+   function updateUser(Request $request,$id) {
+        $request -> validate([
+            'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
+            'username' => 'required',
+            'email' => 'required',
+            'telephone' => 'required',
+        ]);
+
+        $update = User::find($id)->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'username' => $request->username,
+            'email' => $request->email,
+            'telephone' => $request->telephone,
+        ]);
+
+        return redirect()->back();
+    }
+
+    function view_resetPassword()
+    {
+        return view('dashboard.user.resetpassword');
+    }
+
+    function resetPassword(Request $request,$id)
+    {
+        $request -> validate([
+            'password' => 'required|confirmed|min:8'
+        ]);
+
+        $update = User::find($id)->update([
+            'password' => Hash::make($request->password),
+
+        ]);
+
+        return redirect()->route('user.profile');
+    }
+
+    function view_usernoti()
+    {
+        $noti = User::find(Auth::user()->id);
+        return view('dashboard.user.notification',compact('noti'));
+    }
+
+
 }
