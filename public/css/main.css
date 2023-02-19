@@ -73,7 +73,7 @@ body {
     background: rgb(228, 201, 103);
 }
 .top-main{
-    position: relative;
+    position: absolute;
     display: flex;
     left:80%;
     top:100px;

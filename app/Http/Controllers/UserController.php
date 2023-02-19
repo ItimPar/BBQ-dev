@@ -82,7 +82,7 @@ class UserController extends Controller
             return redirect('login');
         }
         $barber = User::where('status','barber')->get();
-        return view('dashboard.user.userQueue')->with('barber',$barber);
+        return view('dashboard.user.userqueue')->with('barber',$barber);
 
     }
 

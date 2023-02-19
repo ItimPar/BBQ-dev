@@ -16,10 +16,10 @@ class QueueNotification extends Notification
      *
      * @return void
      */
-    public function __construct($text,$id)
+    public function __construct($text,$userid)
     {
         $this -> text = $text;
-        $this -> id = $id;
+        $this -> userid = $userid;
     }
 
     /**
@@ -57,9 +57,9 @@ class QueueNotification extends Notification
     {
         return [
             'text' => $this->text,
-            'id' => $this->id,
+            'userid' => $this->userid,
         ];
     }
 
-    
+
 }
